@@ -10,6 +10,7 @@ import org.java_websocket.util.Charsetfunctions;
 public class FramedataImpl1 implements FrameBuilder {
 	protected static byte[] emptyarray = {};
 	protected boolean fin;
+	protected boolean rsv1;
 	protected Opcode optcode;
 	private ByteBuffer unmaskedpayload;
 	protected boolean transferemasked;
@@ -107,5 +108,14 @@ public class FramedataImpl1 implements FrameBuilder {
 	public String toString() {
 		return "Framedata{ optcode:" + getOpcode() + ", fin:" + isFin() + ", payloadlength:[pos:" + unmaskedpayload.position() + ", len:" + unmaskedpayload.remaining() + "], payload:" + Arrays.toString( Charsetfunctions.utf8Bytes( new String( unmaskedpayload.array() ) ) ) + "}";
 	}
+	
+	@Override
+	public void setRsv1(boolean rsv1) {
+		this.rsv1 = rsv1;		
+	}
 
+	@Override
+	public boolean isRsv1() {
+		return this.rsv1;
+	}
 }

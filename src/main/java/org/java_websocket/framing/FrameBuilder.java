@@ -14,4 +14,8 @@ public interface FrameBuilder extends Framedata {
 
 	public abstract void setTransferemasked( boolean transferemasked );
 
+	public abstract void setRsv1(boolean rsv1);
+	
+	public abstract boolean isRsv1();
+
 }

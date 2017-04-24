@@ -20,7 +20,7 @@ import java.util.Random;
 
 public class Draft_10 extends Draft {
 
-    private class IncompleteException extends Throwable {
+    class IncompleteException extends Throwable {
 
         /**
          * It's Serializable.
@@ -163,7 +163,7 @@ public class Draft_10 extends Draft {
         throw new RuntimeException("Don't know how to handle " + opcode.toString());
     }
 
-    private String generateFinalKey(String in) {
+    protected String generateFinalKey(String in) {
         String seckey = in.trim();
         String acc = seckey + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
         MessageDigest sh1;
